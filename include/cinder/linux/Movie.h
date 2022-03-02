@@ -37,7 +37,7 @@ class GstPlayer;
 
 }} // namespace gst::video
 
-namespace cinder { namespace linux {
+namespace cinder { namespace linux_os {
 
 //! \class MovieBase
 //!
@@ -181,7 +181,7 @@ class MovieGl : public MovieBase {
 
 namespace cinder { namespace qtime {
 
-using cinder::linux::MovieGl;
-using cinder::linux::MovieGlRef;
+using cinder::linux_os::MovieGl;
+using cinder::linux_os::MovieGlRef;
 
 }} // namespace cinder::qtime

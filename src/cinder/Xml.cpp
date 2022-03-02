@@ -31,6 +31,7 @@
 #include "rapidxml/rapidxml_print.hpp"
 
 #include <cstring>
+#include <memory>
 
 using namespace std;
 
@@ -153,8 +154,8 @@ XmlTree::XmlTree( const XmlTree &rhs )
 	: mNodeType( rhs.mNodeType ), mTag( rhs.mTag ), mValue( rhs.mValue ), mDocType( rhs.mDocType ),
 	 mParent( 0 ), mAttributes( rhs.mAttributes )
 {
-	for( XmlTree::ConstIter childIt = rhs.begin(); childIt != rhs.end(); ++childIt ) {
-		mChildren.push_back( unique_ptr<XmlTree>( new XmlTree( *childIt ) ) );
+	for( auto childIt = rhs.begin(); childIt != rhs.end(); ++childIt ) {
+		mChildren.push_back( std::make_unique<XmlTree>( *childIt ) );
 		mChildren.back()->mParent = this;
 	}
 }
@@ -170,8 +171,9 @@ XmlTree& XmlTree::operator=( const XmlTree &rhs )
 
 	mChildren.clear();
 
-	for( XmlTree::ConstIter childIt = rhs.begin(); childIt != rhs.end(); ++childIt ) {
-		mChildren.push_back( unique_ptr<XmlTree>( new XmlTree( *childIt ) ) );
+    XmlTree::ConstIter endIt = rhs.end();
+    for( XmlTree::ConstIter childIt = rhs.begin(); childIt != endIt; ++childIt ) {
+		mChildren.push_back( std::make_unique<XmlTree>( *childIt ) );
 		mChildren.back()->mParent = this;
 	}
 	

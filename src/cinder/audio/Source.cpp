@@ -60,7 +60,7 @@ unique_ptr<SourceFile> SourceFile::create( const DataSourceRef &dataSource, size
 #elif defined( CINDER_MSW )
 		result.reset( new msw::SourceFileMediaFoundation( dataSource, sampleRate ) );
 #elif defined( CINDER_LINUX )
-		result.reset( new linux::SourceFileAudioLoader( dataSource, sampleRate ) );		
+		result.reset( new linux_os::SourceFileAudioLoader( dataSource, sampleRate ) );
 #endif
 	}
 
@@ -78,7 +78,7 @@ vector<std::string> SourceFile::getSupportedExtensions()
 #elif defined( CINDER_MSW )
 	vector<string> result = msw::SourceFileMediaFoundation::getSupportedExtensions();
 #elif defined( CINDER_LINUX )	
-	vector<string> result = linux::SourceFileAudioLoader::getSupportedExtensions();
+	vector<string> result = linux_os::SourceFileAudioLoader::getSupportedExtensions();
 #else
 	vector<string> result;
 #endif

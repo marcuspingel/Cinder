@@ -25,7 +25,7 @@
 
 #include "cinder/audio/Device.h"
 
-namespace cinder { namespace audio { namespace linux {
+namespace cinder { namespace audio { namespace linux_os {
 
 class DeviceManagerPulseAudio : public DeviceManager {
   public:

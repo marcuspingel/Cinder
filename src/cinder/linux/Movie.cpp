@@ -30,7 +30,7 @@
 #include "cinder/linux/Movie.h"
 #include "cinder/linux/GstPlayer.h"
 
-namespace cinder { namespace linux {
+namespace cinder { namespace linux_os {
 
 //! \class MovieBase
 //!

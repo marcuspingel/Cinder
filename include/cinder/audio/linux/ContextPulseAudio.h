@@ -29,7 +29,7 @@ namespace pulse {
 struct Context;
 } // namespace pulse
 
-namespace cinder { namespace audio { namespace linux {
+namespace cinder { namespace audio { namespace linux_os {
 
 struct OutputDeviceNodePulseAudioImpl;
 struct InputDeviceNodePulseAudioImpl;

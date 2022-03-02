@@ -95,7 +95,7 @@ Context* Context::master()
 #elif defined( CINDER_ANDROID )
 		sMasterContext.reset( new android::ContextOpenSl() );
 #elif defined( CINDER_LINUX )
-		sMasterContext.reset( new linux::ContextPulseAudio() );
+		sMasterContext.reset( new linux_os::ContextPulseAudio() );
 #endif
 	}
 
@@ -117,7 +117,7 @@ DeviceManager* Context::deviceManager()
 #elif defined( CINDER_ANDROID )
 		sDeviceManager.reset( new android::DeviceManagerOpenSl() );
 #elif defined( CINDER_LINUX )
-		sDeviceManager.reset( new linux::DeviceManagerPulseAudio() );
+		sDeviceManager.reset( new linux_os::DeviceManagerPulseAudio() );
 #endif
 	}
 

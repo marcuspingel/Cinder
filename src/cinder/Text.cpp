@@ -259,7 +259,7 @@ void Line::calcExtents()
 	for( vector<Run>::iterator runIt = mRuns.begin(); runIt != mRuns.end(); ++runIt ) {
 		FT_Face face = runIt->mFont.getFreetypeFace();
 
-		auto measure = ci::linux::ftutil::MeasureString( runIt->mText, face );
+		auto measure = ci::linux_os::ftutil::MeasureString( runIt->mText, face );
 
 		mWidth   += measure.getWidth();
 		mAscent  = std::max( runIt->mFont.getAscent(),     mAscent  );
@@ -1043,7 +1043,7 @@ void TextBox::calculate() const
 
 	vector<string> lines = calculateLineBreaks( nullptr );
 	for( const auto& text : lines ) {
-		auto measure = ci::linux::ftutil::MeasureString( text, face );
+		auto measure = ci::linux_os::ftutil::MeasureString( text, face );
 		float fullWidth = measure.getBaseline().x + measure.getWidth();
 		mCalculatedSize.x = std::max( mCalculatedSize.x, fullWidth );
 		mCalculatedSize.y += measure.getHeight();
@@ -1160,10 +1160,10 @@ Surface TextBox::render( vec2 offset )
 	mCalculatedSize = vec2();
 	FT_Face face = mFont.getFreetypeFace();
 
-	std::vector<ci::linux::ftutil::Measure> measures;
+	std::vector<ci::linux_os::ftutil::Measure> measures;
 	std::vector<string> lines = calculateLineBreaks( nullptr );
 	for( const auto& text : lines ) {
-		auto measure = ci::linux::ftutil::MeasureString( text, face );
+		auto measure = ci::linux_os::ftutil::MeasureString( text, face );
 		measures.push_back( measure );
 
 		float fullWidth = measure.getBaseline().x + measure.getWidth();
@@ -1219,7 +1219,7 @@ Surface TextBox::render( vec2 offset )
 
 			if( '\n' != (char)ch ) {
 				ivec2 drawOffset = ivec2( slot->bitmap_left, dstSize.y - slot->bitmap_top );
-				ci::linux::ftutil::DrawBitmap( drawOffset, &(slot->bitmap), mColor, dstData, dstPixelInc, dstRowBytes, dstSize );
+				ci::linux_os::ftutil::DrawBitmap( drawOffset, &(slot->bitmap), mColor, dstData, dstPixelInc, dstRowBytes, dstSize );
 			}
 
 			pen.x += slot->advance.x;

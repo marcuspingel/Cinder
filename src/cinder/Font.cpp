@@ -1171,7 +1171,7 @@ FontObj::FontObj( DataSourceRef dataSource, float size )
 	FT_Select_Charmap( mFace, FT_ENCODING_UNICODE );
 	FT_Set_Char_Size( mFace, 0, (int)size*64, 0, 72 );
 
-	mName = ci::linux::ftutil::GetFontName( mFace );
+	mName = ci::linux_os::ftutil::GetFontName( mFace );
 #endif
 }
 

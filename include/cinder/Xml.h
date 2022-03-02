@@ -77,10 +77,18 @@ class CI_API XmlTree {
 			++(*this);
 			return prev; 
 		}
-		
-		bool operator!=( const ConstIter &rhs ) { return ( mSequenceStack.back() != rhs.mSequenceStack.back() ) || ( mIterStack.back() != rhs.mIterStack.back() ); }
-		bool operator==( const ConstIter &rhs ) { return ( mSequenceStack.back() == rhs.mSequenceStack.back() ) && ( mIterStack.back() == rhs.mIterStack.back() ); }
-		
+
+		friend bool operator!=( const ConstIter &lhs, const ConstIter &rhs) noexcept {
+			return ( lhs.mSequenceStack.back() != rhs.mSequenceStack.back() ) || ( lhs.mIterStack.back() != rhs.mIterStack.back() );
+		}
+
+		friend bool operator==( const ConstIter &lhs, const ConstIter &rhs) noexcept {
+			return ( lhs.mSequenceStack.back() != rhs.mSequenceStack.back() ) || ( lhs.mIterStack.back() != rhs.mIterStack.back() );
+		}
+
+        bool operator!=( const ConstIter &rhs ) { return ( mSequenceStack.back() != rhs.mSequenceStack.back() ) || ( mIterStack.back() != rhs.mIterStack.back() ); }
+        bool operator==( const ConstIter &rhs ) { return ( mSequenceStack.back() == rhs.mSequenceStack.back() ) && ( mIterStack.back() == rhs.mIterStack.back() ); }
+
 	  protected:
 		//! \cond
 		void	increment();

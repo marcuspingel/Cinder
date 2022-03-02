@@ -35,7 +35,7 @@ using namespace std;
 
 namespace pulse {
 
-using DeviceInfo = cinder::audio::linux::DeviceManagerPulseAudio::DeviceInfo;
+using DeviceInfo = cinder::audio::linux_os::DeviceManagerPulseAudio::DeviceInfo;
 
 struct StateData {
 	enum Request { INVALID = 0, GET_SINKS, GET_SOURCES, GET_DEFAULT_SINK_NAME, GET_DEFAULT_SOURCE_NAME, DONE };
@@ -256,7 +256,7 @@ std::string getDefaultSourceName()
 
 } // namespace pulse
 
-namespace cinder { namespace audio { namespace linux {
+namespace cinder { namespace audio { namespace linux_os {
 
 DeviceManagerPulseAudio::DeviceManagerPulseAudio()
 {

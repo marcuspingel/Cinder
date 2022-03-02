@@ -32,7 +32,7 @@
 namespace audioloader {
 
 using SampleType = cinder::audio::SampleType;
-using SourceFileAudioLoader = cinder::audio::linux::SourceFileAudioLoader;
+using SourceFileAudioLoader = cinder::audio::linux_os::SourceFileAudioLoader;
 using AudioFileExc = cinder::audio::AudioFileExc;
 
 enum class FileType {
@@ -467,7 +467,7 @@ void FileLoaderSndFile::seek( int readPositionFrames )
 
 } // namespace audioloader
 
-namespace cinder { namespace audio { namespace linux {
+namespace cinder { namespace audio { namespace linux_os {
 
 // ----------------------------------------------------------------------------------------------------
 // SourceFileAudioLoader

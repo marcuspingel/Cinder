@@ -31,7 +31,7 @@ class FileLoader;
 
 } // namespace audioloader
 
-namespace cinder { namespace audio { namespace linux {
+namespace cinder { namespace audio { namespace linux_os {
 
 class SourceFileAudioLoader : public SourceFile {
   public:

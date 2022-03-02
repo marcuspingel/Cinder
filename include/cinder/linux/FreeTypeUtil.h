@@ -35,7 +35,7 @@
 
 #include "cinder/app/App.h"
 
-namespace cinder { namespace linux { namespace ftutil {
+namespace cinder { namespace linux_os { namespace ftutil {
 
 class Measure {
 public:

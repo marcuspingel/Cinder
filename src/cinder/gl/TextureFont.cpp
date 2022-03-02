@@ -397,7 +397,7 @@ TextureFont::TextureFont( const Font &font, const string &utf8Chars, const Forma
 				FT_Load_Glyph( face, glyphIndex, FT_LOAD_RENDER );
 				FT_GlyphSlot slot = face->glyph;
 				ivec2 drawOffset = ivec2( slot->bitmap_left, surfaceSize.y - slot->bitmap_top );
-				ci::linux::ftutil::DrawBitmap( drawOffset, &(slot->bitmap), white, surfaceData, surfacePixelInc, surfaceRowBytes, surfaceSize );
+				ci::linux_os::ftutil::DrawBitmap( drawOffset, &(slot->bitmap), white, surfaceData, surfacePixelInc, surfaceRowBytes, surfaceSize );
 
 				
 				FT_Load_Glyph( face, glyphIndex, FT_LOAD_DEFAULT );

@@ -601,7 +601,7 @@ void InputStream::enqueueSamples( pa_stream *s, size_t nbytes )
 
 } // namespace pulse
 
-namespace cinder { namespace audio { namespace linux {
+namespace cinder { namespace audio { namespace linux_os {
 
 // ----------------------------------------------------------------------------------------------------
 // OutputDeviceNodePulseAudioImpl (private)
